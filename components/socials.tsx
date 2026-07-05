@@ -31,7 +31,7 @@ const DATA = {
         social: {
             GitHub: {
                 name: "GitHub",
-                url: "https://github.com/codeza-ai",
+                url: "https://github.com/darshan-odedara",
                 icon: Icons.github,
             },
             LinkedIn: {

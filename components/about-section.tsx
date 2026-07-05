@@ -4,20 +4,42 @@ import { motion } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Download, Github, Linkedin} from "lucide-react";
+import { MapPin, Calendar, Download, Github, Linkedin, Brain, Network, Workflow } from "lucide-react";
 import { Ripple } from "@/components/magicui/ripple";
 import Image from "next/image";
 import Link from "next/link";
 
-// type Experience = {
-//   title: string;
-//   company: string;
-//   period: string;
-//   description: string;
-//   technologies: string[];
-// }
-
-// const experiences: Experience[]
+const experience = {
+  company: "Greenway Health India",
+  location: "India",
+  roles: [
+    {
+      title: "Associate Software Engineer",
+      period: "July 2026 - Present",
+      description:
+        "Continuing work on production-ready SDLC agents and AI-assisted healthcare engineering at enterprise scale.",
+      highlights: [
+        "Working toward a production agentic SDLC workflow for automating software delivery.",
+        "Contributing to AI-assisted engineering practices as Greenway expands AI methodologies.",
+        "Applying system design thinking across large-scale healthcare software workflows.",
+      ],
+      technologies: ["AI-assisted SDLC", "System Design", "Enterprise Automation"],
+    },
+    {
+      title: "Trainee",
+      period: "January 2026 - July   2026",
+      description:
+        "Worked across agile delivery, EHR product development, microservices, interoperability, and internal SDLC automation.",
+      highlights: [
+        "Worked on Novare, Greenway Health's AI-first, cloud-first EHR platform.",
+        "Built front-end workflows with AI features and later moved into backend microservices.",
+        "Handled interoperability challenges across Novare and legacy products like Intergy and PrimeSuite.",
+        "Developed SDLC agents across multiple stations to automate parts of enterprise software delivery.",
+      ],
+      technologies: [".NET", "Microservices", "FHIR", "EHR", "Agile"],
+    },
+  ],
+};
 
 const education = [
   {
@@ -41,12 +63,12 @@ const education = [
 ];
 
 const interests = [
-  "Competitive Programming",
-  "Open Source Contribution",
+  "Problem Solving",
+  "Agentic SDLC",
   "System Design",
-  "Full-Stack Development",
-  "DevOps",
-  "Cloud Computing",
+  "Healthcare Technology",
+  "Large-Scale Systems",
+  "AI-Assisted Engineering",
 ];
 
 export function AboutSection() {
@@ -70,7 +92,7 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Passionate about creating exceptional programs and solving the hardest problems to create impactful solutions.
+            I like seeing software from a bird's-eye view: the users, systems, constraints, and small engineering decisions that turn complex problems into useful products.
           </p>
         </motion.div>
 
@@ -93,7 +115,7 @@ export function AboutSection() {
                 height={200}
                 className="mx-auto bg-white mb-4 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center"/>
                 <CardTitle className="text-2xl">Darshan Odedara</CardTitle>
-                <p className="text-muted-foreground"><code>Coder for life</code></p>
+                <p className="text-muted-foreground"><code>Problem solver for life</code></p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3 text-sm">
@@ -102,7 +124,7 @@ export function AboutSection() {
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <Calendar className="h-4 w-4 text-muted-foreground" />
-                  <span>Available for opportunities</span>
+                  <span>Associate Software Engineer</span>
                 </div>
                 
                 <div className="flex gap-3 pt-4">
@@ -116,7 +138,7 @@ export function AboutSection() {
                 
                 <div className="flex justify-center gap-4 pt-4">
                   <motion.a
-                    href="https://github.com/codeza-ai"
+                    href="https://github.com/darshan-odedara"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
@@ -148,15 +170,16 @@ export function AboutSection() {
               </CardHeader>
               <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a passionate full-stack developer with over 2+ years of experience creating modern web applications.
-                  I specialize in React, Next.js, Node.js, and Python Web Frameworks, and I'm always eager to learn new technologies and best practices.
+                  I'm a software engineer and tech enthusiast who enjoys looking past the code into the system around it.
+                  I care about how product goals, architecture, data movement, and team process fit together.
                 </p>
                 <p>
-                  My journey as a programmer started when I started building mobile apps on a non-coding platform called Thunkable. It was back then, when I developed programming logic. I wrote my first code in Python when I was in 11th grade, so Python will always be special for me. Since then, I have learnt multiple programming languages, frameworks, and technologies.
+                  After my seventh semester, I spent a focused stretch strengthening Data Structures and Algorithms and solved around 800 LeetCode problems.
+                  That practice sharpened the way I break down ambiguity, compare trade-offs, and move from a hard problem to a working plan.
                 </p>
                 <p>
-                  I believe in writing clean, maintainable, and scalable code and creating user experiences that are both beautiful and functional.
-                  When I'm not coding, you can find me learning a new skill, mostly programming, or reading about new technologies, or exploring the latest trends in development, or, in the end, watching movies.
+                  At Greenway Health, I learned that software development is much bigger than writing code.
+                  Working around EHR platforms, microservices, FHIR-compliant systems, legacy interoperability, and AI-assisted SDLC workflows gave me a deeper appreciation for large-scale engineering.
                 </p>
               </CardContent>
             </Card>
@@ -164,7 +187,7 @@ export function AboutSection() {
         </motion.div>
 
         {/* Experience Timeline */}
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -176,40 +199,91 @@ export function AboutSection() {
               <CardTitle className="text-2xl">Professional Experience</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-8">
-                {experiences.map((exp, index) => (
-                  <motion.div
-                    key={exp.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    className="relative pl-8 border-l-2 border-primary/20"
-                  >
-                    <div className="absolute left-[-9px] top-0 w-4 h-4 bg-primary rounded-full" />
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-semibold">{exp.title}</h3>
-                      <p className="text-muted-foreground">{exp.company}</p>
-                      <p className="text-sm text-muted-foreground">{exp.period}</p>
-                      <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {exp.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="secondary"
-                            className="text-xs bg-muted/50 hover:bg-muted transition-colors duration-200"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
+              <div className="grid grid-cols-[4rem_1fr] gap-x-4 gap-y-5 sm:gap-x-5">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-white p-2">
+                  <Image
+                    src="/greenway-health-logo.png"
+                    alt="Greenway Health logo"
+                    width={64}
+                    height={64}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="min-w-0 space-y-1">
+                  <h3 className="text-xl font-semibold">{experience.company}</h3>
+                  <p className="text-sm text-muted-foreground">{experience.location}</p>
+                </div>
+
+                <div className="col-span-2 ml-8 space-y-6 md:col-span-1 md:col-start-2 md:ml-0">
+                  {experience.roles.map((role, index) => (
+                    <div key={role.title} className="relative pl-6">
+                      <div className="absolute left-0 top-1 h-3 w-3 rounded-full bg-primary" />
+                      {index < experience.roles.length - 1 && (
+                        <div className="absolute left-[5px] top-5 h-[calc(100%-0.25rem)] w-px bg-border" />
+                      )}
+                      <div className="space-y-3">
+                        <div className="space-y-1">
+                          <h4 className="font-semibold">{role.title}</h4>
+                          <p className="text-sm text-muted-foreground">{role.period}</p>
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{role.description}</p>
+                        <ul className="list-disc space-y-1.5 pl-5 text-sm text-muted-foreground">
+                          {role.highlights.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {role.technologies.map((skill) => (
+                            <Badge key={skill} variant="secondary" className="text-xs bg-muted/50">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
               </div>
             </CardContent>
           </Card>
-        </motion.div> */}
+        </motion.div>
+
+        {/* Current Focus */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                title: "Problem Solving",
+                description: "Around 800 LeetCode problems solved since January, with a focus on patterns, trade-offs, and clarity.",
+                icon: Brain,
+              },
+              {
+                title: "Large Systems",
+                description: "Learning how cloud EHR platforms, microservices, FHIR compliance, and legacy interoperability fit together.",
+                icon: Network,
+              },
+              {
+                title: "Agentic SDLC",
+                description: "Exploring multi-agent workflows that can automate meaningful parts of enterprise software delivery.",
+                icon: Workflow,
+              },
+            ].map((item) => (
+              <Card key={item.title} className="border-border/50 bg-background/50 backdrop-blur-sm">
+                <CardContent className="p-6 space-y-3">
+                  <item.icon className="h-6 w-6 text-primary" />
+                  <h3 className="font-semibold">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Education & Interests */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

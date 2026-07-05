@@ -4,26 +4,16 @@ import { motion } from "motion/react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { Bot, ExternalLink, Github } from "lucide-react";
 import { GridPattern } from "@/components/magicui/grid-pattern";
 
 const featuredProjects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform built with Next.js, TypeScript, and Stripe. Features include user authentication, product management, and payment processing.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "Prisma"],
-    image: "/api/placeholder/400/250",
+    title: "Agentic SDLC Workflow",
+    description: "A placeholder project for a multi-agent workflow designed to automate planning, implementation, validation, and release readiness in an enterprise SDLC.",
+    technologies: ["AI Agents", "SDLC Automation", "System Design", "Enterprise Workflows"],
     github: "https://github.com",
-    live: "https://example.com",
-    featured: true,
-  },
-  {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Express"],
-    image: "/api/placeholder/400/250",
-    github: "https://github.com",
-    live: "https://example.com",
+    live: "#",
     featured: true,
   },
 ];
@@ -63,7 +53,7 @@ export function ProjectsOverview() {
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and passion for creating exceptional digital experiences.
+            Projects that reflect my current interest in AI-assisted engineering, large systems, and practical automation.
           </p>
         </motion.div>
 
@@ -82,7 +72,10 @@ export function ProjectsOverview() {
               <Card className="h-full overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                    <span className="text-muted-foreground text-sm">Project Image</span>
+                    <div className="text-center space-y-2">
+                      <Bot className="mx-auto h-10 w-10 text-muted-foreground" />
+                      <span className="text-muted-foreground text-sm">Project visual placeholder</span>
+                    </div>
                   </div>
                   {project.featured && (
                     <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
@@ -128,16 +121,19 @@ export function ProjectsOverview() {
                       </a>
                     </Button>
                     
-                    <Button
-                      size="sm"
-                      className="flex-1 group/btn"
-                      asChild
-                    >
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        Live Demo
-                      </a>
-                    </Button>
+                    {project.live === "#" ? (
+                      <Button size="sm" className="flex-1" disabled>
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Coming Soon
+                      </Button>
+                    ) : (
+                      <Button size="sm" className="flex-1 group/btn" asChild>
+                        <a href={project.live} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

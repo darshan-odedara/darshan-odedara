@@ -1,6 +1,9 @@
 import { ProjectsSection } from "@/components/projects-section";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { projectsMetadata } from "./metadata";
+
+export const metadata = projectsMetadata;
 
 export default function ProjectsPage() {
   return (

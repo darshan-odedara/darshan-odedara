@@ -9,22 +9,13 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 const featuredPosts = [
   {
-    title: "Building Scalable React Applications with TypeScript",
-    excerpt: "Learn how to structure large React applications using TypeScript, including best practices for state management, component composition, and performance optimization.",
-    category: "Development",
-    readTime: "8 min read",
-    date: "2024-01-15",
+    title: "Agentic SDLC: Automating Software Delivery with AI Agents",
+    excerpt: "A placeholder article about using multiple AI agents and workflow stations to automate planning, development, validation, and delivery inside a company.",
+    category: "AI Engineering",
+    readTime: "Draft",
+    date: "2026-07-05",
     featured: true,
-    slug: "building-scalable-react-applications",
-  },
-  {
-    title: "The Future of Web Development: What's Next in 2024",
-    excerpt: "Explore the latest trends in web development, from AI-powered tools to new frameworks and technologies that are shaping the future of the web.",
-    category: "Technology",
-    readTime: "6 min read",
-    date: "2024-01-10",
-    featured: true,
-    slug: "future-of-web-development-2024",
+    slug: "agentic-sdlc-automation",
   },
 ];
 
@@ -56,7 +47,7 @@ export function BlogOverview() {
             Latest Articles
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Thoughts, tutorials, and insights about web development, design, and technology.
+            Notes on architecture, problem solving, AI-assisted delivery, and the systems behind software work.
           </p>
         </motion.div>
 

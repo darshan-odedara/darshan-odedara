@@ -3,38 +3,37 @@
 import { motion } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 
 const skillCategories = [
   {
-    category: "Frontend Development",
+    category: "Engineering Perspective",
     skills: [
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "TypeScript", level: 80 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "HTML/CSS", level: 90 },
+      "System Design",
+      "Large-Scale Architecture",
+      "Problem Decomposition",
+      "Trade-off Analysis",
+      "Technical Communication",
     ],
   },
   {
-    category: "Backend Development",
+    category: "Software Delivery",
     skills: [
-      { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 80 },
-      { name: "Python", level: 75 },
-      { name: "PostgreSQL", level: 70 },
-      { name: "MongoDB", level: 75 },
+      "Agile Development",
+      "Agentic SDLC",
+      "Microservices",
+      "Cloud Architecture",
+      "Interoperability",
     ],
   },
   {
-    category: "Tools & Technologies",
+    category: "Core Languages",
     skills: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 70 },
-      { name: "AWS", level: 65 },
-      { name: "Figma", level: 80 },
-      { name: "Vercel", level: 85 },
+      "C++",
+      "Java",
+      "C# / .NET",
+      "Python",
+      "TypeScript",
     ],
   },
 ];
@@ -64,7 +63,7 @@ export function SkillsSection() {
             Skills & Expertise
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and proficiency levels across various technologies and tools.
+            I prefer to present skills as engineering strengths instead of percentage bars. Tools change, but problem solving, architecture, and delivery judgment compound.
           </p>
         </motion.div>
 
@@ -88,23 +87,14 @@ export function SkillsSection() {
                 <CardContent className="space-y-6">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
-                      key={skill.name}
+                      key={skill}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: skillIndex * 0.1 }}
                       viewport={{ once: true }}
-                      className="space-y-2"
+                      className="rounded-lg border border-border/60 bg-muted/20 px-4 py-3"
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <Badge variant="secondary" className="text-xs">
-                          {skill.level}%
-                        </Badge>
-                      </div>
-                      <Progress
-                        value={skill.level}
-                        className="h-2"
-                      />
+                      <span className="text-sm font-medium">{skill}</span>
                     </motion.div>
                   ))}
                 </CardContent>
@@ -130,9 +120,9 @@ export function SkillsSection() {
             <CardContent>
               <div className="flex flex-wrap gap-3 justify-center">
                 {[
-                  "Firebase", "Stripe", "Prisma", "Socket.io", "Jest", "Cypress",
-                  "GraphQL", "REST APIs", "Webpack", "Vite", "ESLint", "Prettier",
-                  "Responsive Design", "Progressive Web Apps", "SEO", "Performance Optimization"
+                  "React", "Next.js", "Node.js", "SQL", "REST APIs", "Git",
+                  "DSA", "OOP", "FHIR", "EHR Systems", "AI Coding Tools", "Codex",
+                  "Claude Code", "Frontend Workflows", "Backend Services", "Healthcare Tech"
                 ].map((skill, index) => (
                   <motion.div
                     key={skill}

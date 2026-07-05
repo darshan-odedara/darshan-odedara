@@ -1,6 +1,9 @@
 import { SkillsSection } from "@/components/skills-section";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { skillsMetadata } from "./metadata";
+
+export const metadata = skillsMetadata;
 
 export default function SkillsPage() {
   return (

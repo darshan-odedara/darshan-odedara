@@ -3,33 +3,23 @@
 import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiNodedotjs, 
+  SiDotnet,
+  SiOpenai,
+  SiOpenjdk,
   SiPython,
-  SiPostgresql,
-  SiMongodb,
-  SiGit,
-  SiDocker,
-  SiFigma,
-  SiVercel,
+  SiTypescript,
 } from "react-icons/si";
+import { Brain, Network, Workflow } from "lucide-react";
 
 const technologies = [
-  { name: "React", icon: SiReact, color: "text-blue-500" },
-  { name: "Next.js", icon: SiNextdotjs, color: "text-black dark:text-white" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500" },
-  { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
+  { name: "Problem Solving", icon: Brain, color: "text-amber-500" },
+  { name: "System Design", icon: Network, color: "text-cyan-500" },
+  { name: "Agentic SDLC", icon: Workflow, color: "text-emerald-500" },
+  { name: ".NET", icon: SiDotnet, color: "text-violet-500" },
+  { name: "Java", icon: SiOpenjdk, color: "text-red-500" },
   { name: "Python", icon: SiPython, color: "text-yellow-500" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-  { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-  { name: "Git", icon: SiGit, color: "text-orange-600" },
-  { name: "Docker", icon: SiDocker, color: "text-blue-500" },
-  { name: "Figma", icon: SiFigma, color: "text-purple-500" },
-  { name: "Vercel", icon: SiVercel, color: "text-black dark:text-white" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
+  { name: "AI Tools", icon: SiOpenai, color: "text-black dark:text-white" },
 ];
 
 export function SkillsOverview() {
@@ -45,15 +35,15 @@ export function SkillsOverview() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Technologies & Tools
+            Engineering Focus
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of technologies and tools I work with to build modern web applications.
+            The areas I want this portfolio to emphasize: problem solving, systems thinking, and AI-assisted software delivery.
           </p>
         </motion.div>
 
         {/* Technologies Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}

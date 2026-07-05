@@ -1,26 +1,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://darshanodedara.vercel.app</loc>
-    <lastmod>2025-08-17T15:02:24.021Z</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-07-05T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://darshanodedara.vercel.app/about</loc>
-    <lastmod>2025-08-17T15:02:24.021Z</lastmod>
+    <lastmod>2026-07-05T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://darshanodedara.vercel.app/blog</loc>
-    <lastmod>2025-08-17T15:02:24.021Z</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-05T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://darshanodedara.vercel.app/projects</loc>
-    <lastmod>2025-08-17T15:02:24.021Z</lastmod>
+    <lastmod>2026-07-05T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://darshanodedara.vercel.app/skills</loc>
+    <lastmod>2026-07-05T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
