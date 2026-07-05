@@ -57,7 +57,7 @@ export function SkillsOverview() {
                 <CardContent className="p-6 flex flex-col items-center justify-center text-center space-y-3">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className={`${tech.iconSize ?? "text-4xl"} ${tech.color} group-hover:scale-110 transition-transform duration-300`}
+                    className={`text-4xl ${tech.color} group-hover:scale-110 transition-transform duration-300`}
                   >
                     <tech.icon />
                   </motion.div>
