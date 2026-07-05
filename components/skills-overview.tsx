@@ -4,12 +4,11 @@ import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   SiDotnet,
-  SiOpenai,
   SiOpenjdk,
   SiPython,
   SiTypescript,
 } from "react-icons/si";
-import { Brain, Network, Workflow } from "lucide-react";
+import { Bot, Brain, Network, Workflow } from "lucide-react";
 
 const technologies = [
   { name: "Problem Solving", icon: Brain, color: "text-amber-500" },
@@ -19,7 +18,7 @@ const technologies = [
   { name: "Java", icon: SiOpenjdk, color: "text-red-500" },
   { name: "Python", icon: SiPython, color: "text-yellow-500" },
   { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
-  { name: "AI Tools", icon: SiOpenai, color: "text-black dark:text-white" },
+  { name: "AI Tools", icon: Bot, color: "text-black dark:text-white" },
 ];
 
 export function SkillsOverview() {
@@ -58,7 +57,7 @@ export function SkillsOverview() {
                 <CardContent className="p-6 flex flex-col items-center justify-center text-center space-y-3">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className={`text-4xl ${tech.color} group-hover:scale-110 transition-transform duration-300`}
+                    className={`${tech.iconSize ?? "text-4xl"} ${tech.color} group-hover:scale-110 transition-transform duration-300`}
                   >
                     <tech.icon />
                   </motion.div>
