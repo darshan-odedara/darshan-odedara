@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const aboutMetadata: Metadata = {
   title: "About",
   description:
-    "Learn about Darshan Odedara's journey through VIT Chennai, DSA practice, Greenway Health India, EHR systems, and AI-assisted software engineering.",
+    "Darshan Odedara is a software engineer interested in problem solving, system design, and AI-assisted engineering.",
   alternates: {
     canonical: "/about",
   },

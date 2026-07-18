@@ -4,22 +4,14 @@ import { motion } from "motion/react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight, User } from "lucide-react";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import Link from "next/link";
+import type { BlogPostMeta } from "@/lib/blog";
 
-const blogPosts = [
-  {
-    title: "Agentic SDLC: Automating Software Delivery with AI Agents",
-    excerpt: "A placeholder article about using multiple AI agents and workflow stations to automate planning, development, validation, and delivery inside a company.",
-    category: "AI Engineering",
-    readTime: "Draft",
-    date: "2026-07-05",
-    featured: true,
-    slug: "agentic-sdlc-automation",
-  },
-];
+export function BlogSection({ posts }: { posts: BlogPostMeta[] }) {
+  const [featuredPost, ...otherPosts] = posts;
 
-export function BlogSection() {
   return (
     <section id="blog" className="relative py-20 overflow-hidden">
       {/* Background Pattern */}
@@ -53,7 +45,7 @@ export function BlogSection() {
 
         {/* Featured Posts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {blogPosts.filter(post => post.featured).map((post, index) => (
+          {featuredPost && [featuredPost].map((post, index) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -78,20 +70,20 @@ export function BlogSection() {
                     <Badge variant="outline" className="text-xs">
                       {post.category}
                     </Badge>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
+                    <div className="flex items-center gap-1 text-sm font-bold">
+                      <Calendar className="h-3.5 w-3.5" />
                       {new Date(post.date).toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'short', 
                         day: 'numeric' 
                       })}
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      {post.readTime}
+                    <div className="flex items-center gap-1 text-sm font-bold">
+                      <User className="h-3.5 w-3.5" />
+                      {post.author}
                     </div>
                   </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
                     {post.title}
                   </CardTitle>
                   <CardDescription className="text-muted-foreground leading-relaxed">
@@ -103,9 +95,12 @@ export function BlogSection() {
                   <Button
                     variant="ghost"
                     className="group/btn p-0 h-auto font-medium text-primary hover:text-primary/80"
+                    asChild
                   >
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <Link href={`/blog/${post.slug}`}>
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -115,7 +110,7 @@ export function BlogSection() {
 
         {/* All Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.filter(post => !post.featured).map((post, index) => (
+          {otherPosts.map((post, index) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -137,20 +132,20 @@ export function BlogSection() {
                     <Badge variant="outline" className="text-xs">
                       {post.category}
                     </Badge>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
+                    <div className="flex items-center gap-1 text-sm font-bold">
+                      <Calendar className="h-3.5 w-3.5" />
                       {new Date(post.date).toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'short', 
                         day: 'numeric' 
                       })}
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      {post.readTime}
+                    <div className="flex items-center gap-1 text-sm font-bold">
+                      <User className="h-3.5 w-3.5" />
+                      {post.author}
                     </div>
                   </div>
-                  <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
                     {post.title}
                   </CardTitle>
                   <CardDescription className="text-muted-foreground leading-relaxed line-clamp-3">
@@ -163,9 +158,12 @@ export function BlogSection() {
                     variant="ghost"
                     size="sm"
                     className="group/btn p-0 h-auto font-medium text-primary hover:text-primary/80"
+                    asChild
                   >
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <Link href={`/blog/${post.slug}`}>
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

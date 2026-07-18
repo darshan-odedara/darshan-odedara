@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Download, Github, Linkedin, Brain, Network, Workflow } from "lucide-react";
+import { MapPin, Briefcase, Download, Github, Linkedin, Brain, Network, Workflow } from "lucide-react";
 import { Ripple } from "@/components/magicui/ripple";
 import Image from "next/image";
 import Link from "next/link";
@@ -92,7 +92,7 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I like seeing software from a bird's-eye view: the users, systems, constraints, and small engineering decisions that turn complex problems into useful products.
+            A software engineer interested in thoughtful systems, practical problem solving, and technology that makes work simpler.
           </p>
         </motion.div>
 
@@ -115,27 +115,25 @@ export function AboutSection() {
                 height={200}
                 className="mx-auto bg-white mb-4 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center"/>
                 <CardTitle className="text-2xl">Darshan Odedara</CardTitle>
-                <p className="text-muted-foreground"><code>Problem solver for life</code></p>
+                <p className="text-muted-foreground"><code>A Curious Mind</code></p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3 text-sm">
                   <MapPin className="h-4 w-4 text-muted-foreground" />
-                  <span>Bharuch, Gujarat</span>
+                  <span>Bengaluru</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <Calendar className="h-4 w-4 text-muted-foreground" />
+                  <Briefcase className="h-4 w-4 text-muted-foreground" />
                   <span>Associate Software Engineer</span>
                 </div>
-                
                 <div className="flex gap-3 pt-4">
-                  <Button size="sm" className="flex-1">
+                  <Button size="sm" className="flex-1" asChild>
                     <Link href="/resume.pdf" target="_blank" className="flex items-center">
                       <Download className="mr-2 h-4 w-4" />
                       Resume
                     </Link>
                   </Button>
                 </div>
-                
                 <div className="flex justify-center gap-4 pt-4">
                   <motion.a
                     href="https://github.com/darshan-odedara"
@@ -170,16 +168,15 @@ export function AboutSection() {
               </CardHeader>
               <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a software engineer and tech enthusiast who enjoys looking past the code into the system around it.
-                  I care about how product goals, architecture, data movement, and team process fit together.
+                  I enjoy looking beyond individual lines of code to understand the people, systems, constraints, and decisions around a product.
+                  My work is guided by clarity, curiosity, and a preference for useful, maintainable solutions.
                 </p>
                 <p>
-                  After my seventh semester, I spent a focused stretch strengthening Data Structures and Algorithms and solved around 800 LeetCode problems.
-                  That practice sharpened the way I break down ambiguity, compare trade-offs, and move from a hard problem to a working plan.
+                  I value deliberate problem solving: breaking down ambiguity, comparing trade-offs, and turning complex ideas into clear plans.
+                  I am equally interested in the technical details and the collaboration needed to make software work well in practice.
                 </p>
                 <p>
-                  At Greenway Health, I learned that software development is much bigger than writing code.
-                  Working around EHR platforms, microservices, FHIR-compliant systems, legacy interoperability, and AI-assisted SDLC workflows gave me a deeper appreciation for large-scale engineering.
+                  I am drawn to software engineering, system design, automation, and AI-assisted workflows—especially where they can improve reliability and make everyday work easier.
                 </p>
               </CardContent>
             </Card>
@@ -213,7 +210,6 @@ export function AboutSection() {
                   <h3 className="text-xl font-semibold">{experience.company}</h3>
                   <p className="text-sm text-muted-foreground">{experience.location}</p>
                 </div>
-
                 <div className="col-span-2 ml-8 space-y-6 md:col-span-1 md:col-start-2 md:ml-0">
                   {experience.roles.map((role, index) => (
                     <div key={role.title} className="relative pl-6">
@@ -248,11 +244,11 @@ export function AboutSection() {
           </Card>
         </motion.div>
 
-        {/* Current Focus */}
+        {/* Areas of Focus */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
           className="mb-16"
         >
@@ -260,17 +256,17 @@ export function AboutSection() {
             {[
               {
                 title: "Problem Solving",
-                description: "Around 800 LeetCode problems solved since January, with a focus on patterns, trade-offs, and clarity.",
+                description: "Approaching complex questions with structure, curiosity, and attention to trade-offs.",
                 icon: Brain,
               },
               {
                 title: "Large Systems",
-                description: "Learning how cloud EHR platforms, microservices, FHIR compliance, and legacy interoperability fit together.",
+                description: "Thinking about architecture, data flow, reliability, and the connections between systems.",
                 icon: Network,
               },
               {
                 title: "Agentic SDLC",
-                description: "Exploring multi-agent workflows that can automate meaningful parts of enterprise software delivery.",
+                description: "Exploring ways AI and automation can support clearer, more effective software delivery.",
                 icon: Workflow,
               },
             ].map((item) => (
@@ -287,7 +283,6 @@ export function AboutSection() {
 
         {/* Education & Interests */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Education */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -320,7 +315,6 @@ export function AboutSection() {
             </Card>
           </motion.div>
 
-          {/* Interests */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
