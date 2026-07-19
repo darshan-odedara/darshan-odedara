@@ -10,6 +10,8 @@ export type BlogPostMeta = {
   date: string;
   author: string;
   category: string;
+  tags: string[];
+  image?: string;
 };
 
 type Frontmatter = Omit<BlogPostMeta, "slug">;
@@ -20,7 +22,8 @@ function isValidFrontmatter(value: Partial<Frontmatter>): value is Frontmatter {
       value.excerpt &&
       value.date &&
       value.author &&
-      value.category,
+      value.category &&
+      Array.isArray(value.tags),
   );
 }
 

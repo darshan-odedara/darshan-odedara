@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight, User } from "lucide-react";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import Link from "next/link";
+import Image from "next/image";
 import type { BlogPostMeta } from "@/lib/blog";
 
 export function BlogSection({ posts }: { posts: BlogPostMeta[] }) {
@@ -57,8 +58,18 @@ export function BlogSection({ posts }: { posts: BlogPostMeta[] }) {
             >
               <Card className="h-full overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-300">
                 <div className="relative overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                    <span className="text-muted-foreground text-sm">Blog Image</span>
+                  <div className="relative aspect-video bg-gradient-to-br from-muted to-muted/50">
+                    {post.image ? (
+                      <Image
+                        src={post.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 33vw, 100vw"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="flex h-full items-center justify-center text-sm text-muted-foreground">Blog Image</span>
+                    )}
                   </div>
                   <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                     Featured
@@ -66,27 +77,29 @@ export function BlogSection({ posts }: { posts: BlogPostMeta[] }) {
                 </div>
                 
                 <CardHeader className="pb-4">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+                  <div className="mb-2 flex flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:gap-4">
                     <Badge variant="outline" className="text-xs">
                       {post.category}
                     </Badge>
-                    <div className="flex items-center gap-1 text-sm font-bold">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {new Date(post.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'short', 
-                        day: 'numeric' 
-                      })}
-                    </div>
-                    <div className="flex items-center gap-1 text-sm font-bold">
-                      <User className="h-3.5 w-3.5" />
-                      {post.author}
+                    <div className="flex items-center gap-4">
+                      <div className="flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-bold text-foreground">
+                        <Calendar className="h-3.5 w-3.5" />
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </div>
+                      <div className="flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-bold text-foreground">
+                        <User className="h-3.5 w-3.5" />
+                        {post.author}
+                      </div>
                     </div>
                   </div>
                   <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
                     {post.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                  <CardDescription className="line-clamp-3 text-muted-foreground leading-relaxed">
                     {post.excerpt}
                   </CardDescription>
                 </CardHeader>
@@ -122,27 +135,39 @@ export function BlogSection({ posts }: { posts: BlogPostMeta[] }) {
             >
               <Card className="h-full overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-300">
                 <div className="relative overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                    <span className="text-muted-foreground text-sm">Blog Image</span>
+                  <div className="relative aspect-video bg-gradient-to-br from-muted to-muted/50">
+                    {post.image ? (
+                      <Image
+                        src={post.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="flex h-full items-center justify-center text-sm text-muted-foreground">Blog Image</span>
+                    )}
                   </div>
                 </div>
                 
                 <CardHeader className="pb-4">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+                  <div className="mb-2 flex flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:gap-4">
                     <Badge variant="outline" className="text-xs">
                       {post.category}
                     </Badge>
-                    <div className="flex items-center gap-1 text-sm font-bold">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {new Date(post.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'short', 
-                        day: 'numeric' 
-                      })}
-                    </div>
-                    <div className="flex items-center gap-1 text-sm font-bold">
-                      <User className="h-3.5 w-3.5" />
-                      {post.author}
+                    <div className="flex items-center gap-4">
+                      <div className="flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-bold text-foreground">
+                        <Calendar className="h-3.5 w-3.5" />
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </div>
+                      <div className="flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-bold text-foreground">
+                        <User className="h-3.5 w-3.5" />
+                        {post.author}
+                      </div>
                     </div>
                   </div>
                   <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">

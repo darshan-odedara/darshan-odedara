@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: post.date,
       url: `/blog/${post.slug}`,
     },
+    keywords: post.tags,
   };
 }
 
@@ -50,11 +51,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mb-4 text-sm font-medium text-primary">{post.category}</p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{post.title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{post.excerpt}</p>
-          <p className="mt-5 text-lg font-bold text-muted-foreground">
+          <p className="mt-5 text-lg font-bold text-foreground">
             By {post.author} · {new Intl.DateTimeFormat("en", { dateStyle: "long" }).format(new Date(`${post.date}T00:00:00`))}
           </p>
+          <div className="mt-6 flex flex-wrap gap-2" aria-label="Tags">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-border/60 px-3 py-1 text-sm text-muted-foreground"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </header>
-        <div className="prose prose-slate max-w-none dark:prose-invert">
+        <div className="prose prose-lg prose-slate max-w-none dark:prose-invert">
           <Post />
         </div>
       </article>
