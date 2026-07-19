@@ -2,6 +2,9 @@ import { ImageResponse } from "next/og";
 import { getPostBySlug } from "@/lib/blog";
 
 export const runtime = "nodejs";
+// Metadata image routes are static by default. This route needs the requested
+// post slug, so render it per request instead of caching one fallback image.
+export const dynamic = "force-dynamic";
 
 export const alt = "Blog post by Darshan Odedara";
 
